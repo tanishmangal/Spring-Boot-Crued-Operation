@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Crud Operation</title>
+    <link rel="stylesheet"  th:href="@{/Table1.css}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>CRUD Operation</h1>
+
+
+<table class="content-table ">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Marks</th>
+        <th>Collage</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${students.empty}">
+        <td colspan="4"> No Students Available</td>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.marks}"></td>
+        <td th:text="${student.collageName}"></td>
+        <td>
+            <div style="display:flex; justify-content:space-between; width:50px;">
+                <i class="fas fa-pen" style="color:blue; cursor: pointer;"></i> <i class="fas fa-trash-alt" style="color:red; cursor: pointer;"></i>
+            </div>
+            </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
